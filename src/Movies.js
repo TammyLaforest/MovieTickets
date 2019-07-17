@@ -1,16 +1,19 @@
-import React, { component } from 'react'
+import React from 'react';
+import {
+    ScrollView,
+    Text,
+    View
+} from 'react-native';
+import { movies } from './data';
 
-import { ScrollView, Text, View } from 'react-native'
-import { movies } from './data'
-
-export default class Movies extends Component {
+export default class Movies extends React.Component {
     render() {
         return (
             <View>
                 <ScrollView>
-                    {movies.map((movie, index) => <Text>{movie.title}</Text>)}
+                    {movies.map((movie, index) => <Text key={index}>{movie.title}</Text>)}
                 </ScrollView>
             </View >
-        )
+        );
     }
 }
