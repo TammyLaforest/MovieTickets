@@ -280,23 +280,16 @@ export default class MoviePopup extends React.Component {
 
 }
 
-// MoviePopup.propTypes = {
-//     isOpen: PropTypes.bool.isRequired,
-//     // Movie object that has title, genre, poster, days and times
-//     movie: PropTypes.object,
-//     // Index of chosen day
-//     chosenDay: PropTypes.number,
-//     // Index of chosem show time
-//     chosenTime: PropTypes.number,
-//     // Gets called when user chooses day
-//     onChooseDay: PropTypes.func,
-//     // Gets called when user chooses time
-//     onChooseTime: PropTypes.func,
-//     // Gets called when user books their ticket
-//     onBook: PropTypes.func,
-//     // Gets called when popup closed
-//     onClose: PropTypes.func,
-// }
+MoviePopup.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    movie: PropTypes.object,
+    chosenDay: PropTypes.number,
+    chosenTime: PropTypes.number,
+    onChooseDay: PropTypes.func,
+    onChooseTime: PropTypes.func,
+    onBook: PropTypes.func,
+    onClose: PropTypes.func,
+}
 
 
 const styles = StyleSheet.create({

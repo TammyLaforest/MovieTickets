@@ -18,7 +18,6 @@ const cols = 3, rows = 3
 
 export default class MoviePoster extends React.Component {
 
-
     render() {
         const { movie, movie: { title, genre, poster }, onOpen } = this.props;
         return (
