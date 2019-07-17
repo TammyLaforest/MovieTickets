@@ -1,7 +1,9 @@
-import React from 'react';
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import Movies from './Movies'
-import Confirmation from './Confirmation'
+import React from 'react'
+import { createStackNavigator, createAppContainer } from "react-navigation"
+
+import Movies from '../screens/Movies'
+import Confirmation from '../screens/Confirmation'
+
 const AppNavigator = createStackNavigator({
     Home: Movies,
     Confirmation: Confirmation

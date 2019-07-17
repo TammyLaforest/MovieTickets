@@ -1,9 +1,9 @@
 import React from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 
-import { movies } from './data'
-import MoviePoster from './MoviePoster'
-import MoviePopup from './MoviePopup'
+import { movies } from '../data'
+import MoviePoster from '../MoviePoster'
+import MoviePopup from '../MoviePopup'
 
 export default class Movies extends React.Component {
     state = {

@@ -15,7 +15,7 @@ import {
 import PropTypes from 'prop-types'
 
 import Options from './Options'
-import Confirmation from './Confirmation'
+import Confirmation from './screens/Confirmation'
 
 /*We could have also preselected the time depending on what time it is now, disable times in past for selection, and maybe scroll options the way that the preselected option is the first one in the list to improve a user experience.But, I’ll leave it to you so that you could practice on your own.*/
 
