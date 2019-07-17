@@ -8,19 +8,35 @@ import MoviePopup from './MoviePopup'
 export default class Movies extends React.Component {
     state = {
         popupIsOpen: false,
+        chosenDay: 0,
+        chosenTime: null
     }
 
     openMovie = (movie) => {
         this.setState({
             popupIsOpen: true,
             movie,
-        });
+        })
     }
 
     closeMovie = () => {
         this.setState({
             popupIsOpen: false,
-        });
+            chosenDay: 0,
+            chosenTime: null
+        })
+    }
+
+    chooseDay = (day) => {
+        this.setState({
+            chosenDay: day,
+        })
+    }
+
+    chooseTime = (time) => {
+        this.setState({
+            chosenTime: time,
+        })
     }
 
 
@@ -44,6 +60,10 @@ export default class Movies extends React.Component {
                     movie={this.state.movie}
                     isOpen={this.state.popupIsOpen}
                     onClose={this.closeMovie}
+                    chosenDay={this.state.chosenDay}
+                    chosenTime={this.state.chosenTime}
+                    onChooseDay={this.chooseDay}
+                    onChooseTime={this.chooseTime}
                 />
             </View >
         )
