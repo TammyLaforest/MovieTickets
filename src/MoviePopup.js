@@ -14,7 +14,11 @@ import {
 
 import PropTypes from 'prop-types'
 
-import { defaultStyles } from './styles';
+import Options from './Options'
+import Confirmation from './Confirmation'
+
+/*We could have also preselected the time depending on what time it is now, disable times in past for selection, and maybe scroll options the way that the preselected option is the first one in the list to improve a user experience.But, I’ll leave it to you so that you could practice on your own.*/
+
 
 
 const { width, height } = Dimensions.get('window')
@@ -38,13 +42,11 @@ export default class MoviePopup extends React.Component {
         visible: this.props.isOpen,
     }
 
-
-
-
     // When user starts pulling popup previous height gets stored here
     // to help us calculate new height value during and after pulling
     _previousHeight = 0
-    componentWillMount() {
+
+    componentDidMount() {
         // Initialize PanResponder to handle move gestures
         this._panResponder = PanResponder.create({
             onStartShouldSetPanResponder: (evt, gestureState) => true,
@@ -120,10 +122,7 @@ export default class MoviePopup extends React.Component {
             },
         });
     }
-    // Need to change this below. tutorial outdated
-    // componentWillReceiveProps(nextProps) {
 
-    // Handle isOpen changes to either open or close popup
     componentWillReceiveProps(nextProps) {
         // isOpen prop changed to true from false
         if (!this.props.isOpen && nextProps.isOpen) {
@@ -252,12 +251,19 @@ export default class MoviePopup extends React.Component {
                         <View>
                             {/* Day */}
                             <Text style={styles.sectionHeader}>Day</Text>
-                            {/* TODO: Add day options here */}
-                            <Text>Add day options here</Text>
-                            {/* Time */}
+
+
+                            <Options
+                                values={days}
+                                chosen={chosenDay}
+                                onChoose={onChooseDay}
+                            />
                             <Text style={styles.sectionHeader}>Showtime</Text>
-                            {/* TODO: Add show time options here */}
-                            <Text>Add show time options here</Text>
+                            <Options
+                                values={times}
+                                chosen={chosenTime}
+                                onChoose={onChooseTime}
+                            />
                         </View>
 
                     </View>
@@ -293,9 +299,8 @@ MoviePopup.propTypes = {
 
 
 const styles = StyleSheet.create({
-    // Main container
     container: {
-        ...StyleSheet.absoluteFillObject,   // fill up all screen
+        ...StyleSheet.absoluteFillObject,
         justifyContent: 'flex-end',         // align popup at the bottom
         backgroundColor: 'transparent',     // transparent background
     },
@@ -329,19 +334,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',     // looks nicier when switching to/from expanded mode
     },
     title: {
-        ...defaultStyles.text,
+        fontFamily: 'Avenir',
         fontSize: 20,
     },
     genre: {
-        ...defaultStyles.text,
+        fontFamily: 'Avenir',
         color: '#BBBBBB',
         fontSize: 14,
     },
     sectionHeader: {
-        ...defaultStyles.text,
+        fontFamily: 'Avenir',
         color: '#AAAAAA',
     },
-    // Footer
+
     footer: {
         padding: 20,
     },
@@ -353,7 +358,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button: {
-        ...defaultStyles.text,
+        fontFamily: 'Avenir',
         color: '#FFFFFF',
         fontSize: 18,
     },

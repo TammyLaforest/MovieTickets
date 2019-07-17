@@ -39,6 +39,22 @@ export default class Movies extends React.Component {
         })
     }
 
+    bookTicket = () => {
+        if (!this.state.chosenTime) {
+            alert('Please select show time');
+        } else {
+            this.closeMovie();
+
+            // Need to update to new navigation
+            this.props.navigation.navigate(
+
+                'Confirmation', {
+                    code: Math.random().toString(36).substring(6).toUpperCase()
+                }
+            )
+        }
+    }
+
 
     render() {
         return (
@@ -64,6 +80,7 @@ export default class Movies extends React.Component {
                     chosenTime={this.state.chosenTime}
                     onChooseDay={this.chooseDay}
                     onChooseTime={this.chooseTime}
+                    onBook={this.bookTicket}
                 />
             </View >
         )

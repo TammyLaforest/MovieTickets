@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject, // fill up all space in a container
     },
     title: {
-        // ...defaultStyles.text,
+        fontFamily: 'Avenir'.text,
         fontSize: 14,
         marginTop: 4,
     },
     genre: {
-        // ...defaultStyles.text,
+        fontFamily: 'Avenir'.text,
         color: '#BBBBBB',
         fontSize: 12,
         lineHeight: 14,

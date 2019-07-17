@@ -19,13 +19,13 @@ export default class Options extends React.Component {
     }
 
     // Animate option selection if value was already chosen not by a user
-    componentWillMount() {
+    componentDidMount() {
         if (this.props.isChosen) {
             this.animateSelect();
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    getDerivedStateFromProps(nextProps) {
         if (!this.props.isChosen && nextProps.isChosen) {
             this.animateSelect();
         } else if (this.props.isChosen && !nextProps.isChosen) {
