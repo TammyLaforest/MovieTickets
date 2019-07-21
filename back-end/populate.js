@@ -1,10 +1,9 @@
-// copied from tutorial https://rationalappdev.com/api-backend-with-nodejs-express-and-mongodb-for-react-native-apps/
-
 import mongoose from 'mongoose'
 import Movie from './models/movie'
 
-import { MongoClient } from 'mongodb'
 const uri = 'mongodb://localhost/movies'
+
+// import { MongoClient } from 'mongodb'
 
 const movies = [
     {
@@ -99,20 +98,15 @@ const movies = [
     },
 ]
 
-
-    // Connect to MongoDB
-    // mongoose.connect('mongodb://localhost/movies')
-    // mongoose.connect('mongodb://localhost/movies', { useNewUrlParser: true });
-
-
-    // MongoClient.connect('mongodb://localhost/movies', { useNewUrlParser: true })
-
-
     (async function () {
         try {
 
-            const client = await MongoClient.connect(uri, { useNewUrlParser: true });
-            // ... anything
+            const client = await
+                mongoose.connect(uri, {
+                    useNewUrlParser: true,
+                    useCreateIndex: true,
+                    useFindAndModify: true
+                })
 
             client.close();
         } catch (e) {
@@ -120,9 +114,6 @@ const movies = [
         }
 
     })()
-
-
-
 
 // Go through each movie
 movies.map(data => {
